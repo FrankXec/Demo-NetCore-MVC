@@ -1,0 +1,26 @@
+﻿@model List<Beer>
+
+<h1>Lista de Cervezas</h1>
+<p>
+    <a asp-action="Create">Crear</a>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var beer in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m=>beer.Name)</td>
+                <td>@Html.DisplayFor(m=>beer.Brand.Name)</td>
+                <td><a asp-action="Update" asp-route-id="@beer.Beerid">Actualizar</a></td>
+                <td><a asp-action="Delete" asp-route-id="@beer.Beerid">Borrar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
